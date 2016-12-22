@@ -254,8 +254,8 @@ test('What are queue methods on arrays?', function (trial) {
   queue.push('second')
   queue.unshift('third')
 
-  trial.is(__, queue.shift())
-  trial.is(__, queue.shift())
+  trial.is('third', queue.shift())
+  trial.is('first', queue.shift())
 })
 
 /**
@@ -263,7 +263,7 @@ test('What are queue methods on arrays?', function (trial) {
  */
 
 test('What is the type of an object?', function (trial) {
-  trial.is(__, typeof({}))
+  trial.is('object', typeof({}))
 })
 
 test('What is object literal notation?', function (trial) {
@@ -272,14 +272,14 @@ test('What is object literal notation?', function (trial) {
     age: 102
   }
 
-  trial.is(__, person.name)
-  trial.is(__, person.age)
+  trial.is('Amory Blaine', person.name)
+  trial.is(102, person.age)
 })
 
 test('Dynamically adding properties to an object.', function (trial) {
   const person = {}
-  person.__ = 'Amory Blaine'
-  person.__ = 102
+  person.name = 'Amory Blaine'
+  person.age = 102
   trial.is('Amory Blaine', person.name)
   trial.is(102, person.age)
 })
@@ -290,6 +290,6 @@ test('Dynamically adding properties to an object.', function (trial) {
 test('Accessing object properties with strings.', function (trial) {
   const person = { name: 'Amory Blaine', age: 102 }
 
-  trial.is(person['__'], 'Amory Blaine')
-  trial.is(person['__'], 102)
+  trial.is(person.name, 'Amory Blaine')
+  trial.is(person.age, 102)
 })
